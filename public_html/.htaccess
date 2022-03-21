@@ -1,0 +1,10 @@
+#Start engine
+RewriteEngine On
+#Redirect host/index.html  to google site 
+RewriteRule ^index.html$ https://www.google.com/ [R=301]
+#Nice looking page
+RewriteRule ^articles/([^/]+)/?$ display_article.php?articleId=$1 [L]
+#Prevent other page from using site's resource
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://(www.)?example.com/.*$ [NC]
+RewriteRule .+.(gif|jpg|png)$ - [F]

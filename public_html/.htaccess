@@ -2,12 +2,12 @@
 RewriteEngine On
 
 #Redirect host/index.html  to google site 
-RewriteRule ^index.html$ https://www.google.com/ [R=301]
+RewriteRule ^index.html$ https://www.google.com/ [R=301] # Rule 301 means Permanent Redirecting
 
 #Nice looking url, when access to 'host/articles/my-article' can see the content of 'host/display_article.php?articleId=my-article'
-RewriteRule ^articles/([^/]+)/?$ display_article.php?articleId=$1 [L]
+RewriteRule ^articles/([^/]+)/?$ display_article.php?articleId=$1 [L] # L means stop processing if this rule matched the requested URL
 
 #Prevent other page from using site's resource
 RewriteCond %{HTTP_REFERER} !^$
-RewriteCond %{HTTP_REFERER} !^http://(www.)?example.com/.*$ [NC]
-RewriteRule .+.(gif|jpg|png)$ - [F]
+RewriteCond %{HTTP_REFERER} !^http://(www.)?example.com/.*$ [NC] # NC means case-insensitive
+RewriteRule .+.(gif|jpg|png)$ - [F] # F means send back a “403 Forbidden” error if the URL contains an image filename

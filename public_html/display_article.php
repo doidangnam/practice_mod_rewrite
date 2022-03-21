@@ -7,6 +7,7 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- Display content of my-article -->
     <?php if (isset($_GET['articleId']) && $_GET['articleId'] = 'my-article') { ?>
         <p>This is my-article</p>
     <?php } ?> 

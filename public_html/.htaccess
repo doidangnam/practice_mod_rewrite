@@ -4,7 +4,7 @@ RewriteEngine On
 #Redirect host/index.html  to google site 
 RewriteRule ^index.html$ https://www.google.com/ [R=301]
 
-#Nice looking url
+#Nice looking url, when access to 'host/articles/my-article' can see the content of 'host/display_article.php?articleId=my-article'
 RewriteRule ^articles/([^/]+)/?$ display_article.php?articleId=$1 [L]
 
 #Prevent other page from using site's resource
